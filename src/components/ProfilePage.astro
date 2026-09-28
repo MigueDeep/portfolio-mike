@@ -1,0 +1,149 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Atom, Braces, CodeXml, Database, GitBranch, MonitorCog, PanelsTopLeft, Server, TestTube } from '@lucide/astro';
+import { languages, ui, type Locale } from '../i18n/ui';
+
+interface Props {
+	profile: CollectionEntry<'profile'>['data'];
+	locale: Locale;
+}
+
+const { profile, locale } = Astro.props;
+const copy = ui[locale];
+const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
+const alternatePath = alternateLocale === 'es' ? '/' : '/en/';
+const technologyIcons = [
+	{ icon: CodeXml, label: 'TypeScript' },
+	{ icon: Braces, label: 'JavaScript' },
+	{ icon: Atom, label: 'React' },
+	{ icon: PanelsTopLeft, label: 'Angular' },
+	{ icon: MonitorCog, label: 'Astro' },
+	{ icon: GitBranch, label: 'Git' },
+	{ icon: Server, label: 'GitHub' },
+	{ icon: TestTube, label: 'Testing' },
+	{ icon: TestTube, label: 'Playwright' },
+	{ icon: Database, label: 'PostgreSQL' },
+	{ icon: Database, label: 'MongoDB' },
+	{ icon: Database, label: 'MySQL' },
+];
+---
+
+<header class="site-header">
+	<a class="brand" href={locale === 'es' ? '/' : '/en/'} aria-label={`${profile.name} - ${copy.navigation.profile}`}>
+		<span class="brand-mark">MD</span>
+		<span>{profile.name}</span>
+	</a>
+	<nav aria-label={locale === 'es' ? 'Navegación principal' : 'Main navigation'}>
+		<a href="#about">{copy.navigation.profile}</a>
+		<a href="#experience">{copy.labels.experience}</a>
+		<a href="#technologies">{copy.labels.technologies}</a>
+		<a href="#projects">{copy.navigation.projects}</a>
+	</nav>
+	<a class="language-switch" href={alternatePath} lang={alternateLocale} aria-label={`${languages[alternateLocale]} version`}>
+		<span aria-hidden="true">{alternateLocale.toUpperCase()}</span>
+		<span>{languages[alternateLocale]}</span>
+	</a>
+	<div class="theme-control">
+		<input id={`theme-toggle-${locale}`} type="checkbox" />
+		<label for={`theme-toggle-${locale}`} aria-label={locale === 'es' ? 'Cambiar a modo claro' : 'Switch to light mode'}>
+			<span aria-hidden="true">◐</span>
+		</label>
+	</div>
+</header>
+
+<main>
+	<section class="hero section-frame" id="about">
+		<div class="hero-copy">
+			<p class="eyebrow">{profile.location} <span aria-hidden="true">/</span> {locale === 'es' ? 'Portfolio profesional' : 'Professional portfolio'}</p>
+			<h1>{profile.name}</h1>
+			<p class="role-line">{profile.roles.join(' | ')}</p>
+			<p class="hero-bio">{profile.bio}</p>
+			<div class="hero-actions">
+				<a class="button button-primary" href={`mailto:${profile.email}`}>{copy.actions.contact}<span aria-hidden="true">↗</span></a>
+				<a class="button button-quiet" href="#experience">{copy.labels.experience}<span aria-hidden="true">↓</span></a>
+			</div>
+		</div>
+		<figure class="profile-photo">
+			<div class="profile-photo-ring">
+				<img src="/images/profile.webp" alt={`${profile.name} portrait placeholder`} />
+			</div>
+		</figure>
+		<div class="hero-index" aria-hidden="true">
+			<span>01</span>
+			<span>05</span>
+		</div>
+	</section>
+
+	<section class="content-section section-frame" id="technologies">
+		<div class="section-heading">
+			<p class="eyebrow">02 / {copy.labels.technologies}</p>
+			<h2>{locale === 'es' ? 'Herramientas para convertir ideas en producto.' : 'Tools for turning ideas into products.'}</h2>
+		</div>
+		<div class="technology-marquee" aria-label={locale === 'es' ? 'Tecnologias principales' : 'Main technologies'}>
+			<div class="technology-marquee-track">
+				{technologyIcons.map((technology) => (
+					<div class="technology-icon" title={technology.label}>
+						<technology.icon aria-hidden="true" />
+						<span>{technology.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+		<div class="technology-grid">
+			{profile.technologies.map((group) => (
+				<div class="technology-group">
+					<h3>{group.name}</h3>
+					<ul>
+						{group.items.map((technology) => <li>{technology}</li>)}
+					</ul>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="content-section section-frame" id="experience">
+		<div class="section-heading section-heading-split">
+			<p class="eyebrow">03 / {copy.labels.experience}</p>
+			<h2>{locale === 'es' ? 'Experiencia que conecta producto, código y personas.' : 'Experience connecting product, code, and people.'}</h2>
+		</div>
+		<div class="experience-list">
+			{profile.experience.map((job, index) => (
+				<article class="experience-item">
+					<div class="experience-meta">
+						<span>0{index + 1}</span>
+						<span>{job.period}</span>
+					</div>
+					<div>
+						<h3>{job.role}</h3>
+						<p class="company">{job.company} <span aria-hidden="true">·</span> {job.location}</p>
+						<ul>
+							{job.bullets.map((bullet) => <li>{bullet}</li>)}
+						</ul>
+					</div>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<section class="project-teaser section-frame" id="projects">
+		<p class="eyebrow">04 / {copy.navigation.projects}</p>
+		<h2>{locale === 'es' ? 'Proyectos en preparación.' : 'Projects are taking shape.'}</h2>
+		<p>{locale === 'es' ? 'La colección de proyectos ya está preparada para recibir casos reales en la siguiente fase.' : 'The project collection is ready for real case studies in the next phase.'}</p>
+	</section>
+
+	<section class="contact-section section-frame" id="contact">
+		<div>
+			<p class="eyebrow">05 / {copy.labels.contact}</p>
+			<h2>{locale === 'es' ? 'Hablemos de lo que sigue.' : "Let's talk about what's next."}</h2>
+		</div>
+		<div class="contact-details">
+			<a class="email-link" href={`mailto:${profile.email}`}>{profile.email}</a>
+			{profile.socials.map((social) => <a href={social.href} target="_blank" rel="noreferrer">{social.label}<span aria-hidden="true">↗</span></a>)}
+		</div>
+	</section>
+</main>
+
+<footer class="site-footer">
+	<span>{profile.name}</span>
+	<span>{new Date().getFullYear()}</span>
+</footer>

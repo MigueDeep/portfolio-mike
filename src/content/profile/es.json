@@ -1,0 +1,72 @@
+{
+  "locale": "es",
+  "name": "Miguel Delgado",
+  "roles": [
+    "Desarrollador de Software",
+    "Desarrollador Front End"
+  ],
+  "email": "miguel.del.dev@gmail.com",
+  "location": "Morelos, México",
+  "bio": "Desarrollador de software apasionado y adaptable, con experiencia práctica en el desarrollo de diversas aplicaciones. Disfruto aprendiendo nuevas tecnologías y busco constantemente maneras de mejorar mis habilidades. Me desenvuelvo en entornos colaborativos, me comunico eficazmente con equipos técnicos y no técnicos, y valoro el trabajo en equipo para ofrecer soluciones de alta calidad.",
+  "technologies": [
+    {
+      "name": "Lenguajes de Programación",
+      "items": ["JavaScript", "TypeScript", "Java", "C#", "PHP"]
+    },
+    {
+      "name": "Frameworks",
+      "items": ["Angular", "React", "Astro", "Spring Boot", ".NET", "Express"]
+    },
+    {
+      "name": "Librerías",
+      "items": ["Tailwind CSS", "Bootstrap", "Material UI (MUI)", "Keep React"]
+    },
+    {
+      "name": "Testing",
+      "items": ["Jest", "Vitest", "Playwright"]
+    },
+    {
+      "name": "Control de Versiones",
+      "items": ["Git", "GitHub", "SourceTree", "GitLab", "Bitbucket"]
+    },
+    {
+      "name": "Metodologías",
+      "items": ["Agile", "Scrum (Jira)"]
+    },
+    {
+      "name": "Bases de Datos",
+      "items": ["MySQL", "MongoDB", "PostgreSQL"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Würth México",
+      "role": "Desarrollador Full-Stack",
+      "location": "Morelos, México",
+      "period": "Mayo 2023 - Julio 2025",
+      "bullets": [
+        "Colaboré en equipos multifuncionales para planificar y desarrollar aplicaciones empresariales internas.",
+        "Participé en el desarrollo frontend con Angular y React, y en el backend con .NET y PHP para optimizar procesos internos.",
+        "Trabajé en estrecha colaboración con las partes interesadas para alinear las soluciones técnicas con los objetivos de la empresa."
+      ]
+    },
+    {
+      "company": "Black Mamba Digital",
+      "role": "Desarrollador FrontEnd",
+      "location": "Morelos, México",
+      "period": "Julio 2025 - Actualmente",
+      "bullets": [
+        "Desarrollé interfaces Front-End con React, Next.js y Astro, aplicando principios de Clean Code y buenas prácticas de desarrollo.",
+        "Trabajé en conjunto con los equipos de Back-End, UI/UX, QA y Producto para garantizar la calidad y funcionalidad de las entregas.",
+        "Participé activamente en la metodología Scrum, contribuyendo en la planificación, revisión y seguimiento de los sprints.",
+        "Me mantuve en constante actualización profesional mediante cursos y aprendizaje de nuevas tecnologías y herramientas modernas de desarrollo."
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/MigueDeep"
+    }
+  ]
+}

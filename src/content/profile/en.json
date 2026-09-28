@@ -1,0 +1,72 @@
+{
+  "locale": "en",
+  "name": "Miguel Delgado",
+  "roles": [
+    "Software Developer",
+    "Front-End Developer"
+  ],
+  "email": "miguel.del.dev@gmail.com",
+  "location": "Morelos, Mexico",
+  "bio": "Passionate and adaptable software developer with hands-on experience in developing diverse applications. I enjoy learning new technologies and constantly look for ways to improve my skills. I thrive in collaborative environments, communicate effectively with both technical and non-technical teams, and value teamwork to deliver high-quality solutions.",
+  "technologies": [
+    {
+      "name": "Programming Languages",
+      "items": ["JavaScript", "TypeScript", "Java", "C#", "PHP"]
+    },
+    {
+      "name": "Frameworks",
+      "items": ["Angular", "React", "Astro", "Spring Boot", ".NET", "Express"]
+    },
+    {
+      "name": "Libraries",
+      "items": ["Tailwind CSS", "Bootstrap", "Material UI (MUI)", "Keep React"]
+    },
+    {
+      "name": "Testing",
+      "items": ["Jest", "Vitest", "Playwright"]
+    },
+    {
+      "name": "Version Control",
+      "items": ["Git", "GitHub", "SourceTree", "GitLab", "Bitbucket"]
+    },
+    {
+      "name": "Methodologies",
+      "items": ["Agile", "Scrum (Jira)"]
+    },
+    {
+      "name": "Databases",
+      "items": ["MySQL", "MongoDB", "PostgreSQL"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Würth México",
+      "role": "Full-Stack Developer",
+      "location": "Morelos, Mexico",
+      "period": "May 2023 - July 2025",
+      "bullets": [
+        "Collaborated with cross-functional teams to plan and develop internal business applications.",
+        "Contributed to frontend development with Angular and React, and backend development with .NET and PHP to optimize internal processes.",
+        "Worked closely with stakeholders to align technical solutions with company goals."
+      ]
+    },
+    {
+      "company": "Black Mamba Digital",
+      "role": "Front-End Developer",
+      "location": "Morelos, Mexico",
+      "period": "July 2025 - Present",
+      "bullets": [
+        "Developed front-end interfaces with React, Next.js, and Astro, applying Clean Code principles and development best practices.",
+        "Worked with Back-End, UI/UX, QA, and Product teams to ensure the quality and functionality of delivered work.",
+        "Actively participated in Scrum methodology, contributing to sprint planning, reviews, and follow-up.",
+        "Stayed current through courses and continuous learning of modern development technologies and tools."
+      ]
+    }
+  ],
+  "socials": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/MigueDeep"
+    }
+  ]
+}
