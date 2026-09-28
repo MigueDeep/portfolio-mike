@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Portfolio profesional bilingue." />
+		<title>Portfolio | Perfil profesional</title>
+		<ClientRouter />
+	</head>
+	<body>
+		<main class="site-shell">
+			<p class="eyebrow">Portfolio / 2026</p>
+			<h1>Perfil profesional en construccion.</h1>
+			<p class="intro">
+				Una base bilingue, accesible y preparada para presentar experiencia, tecnologia y proyectos.
+			</p>
+		</main>
+	</body>
+</html>
