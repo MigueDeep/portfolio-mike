@@ -59,13 +59,14 @@ const technologyIcons = [
 			<p class="role-line">{profile.roles.join(' | ')}</p>
 			<p class="hero-bio">{profile.bio}</p>
 			<div class="hero-actions">
-				<a class="button button-primary" href={`mailto:${profile.email}`}>{copy.actions.contact}<span aria-hidden="true">↗</span></a>
+				<a class="button button-primary" href="#contact">{copy.actions.contact}<span aria-hidden="true">↓</span></a>
+				{profile.cv && <a class="button button-quiet" href={profile.cv} download>{copy.actions.downloadCv}<span aria-hidden="true">↓</span></a>}
 				<a class="button button-quiet" href="#experience">{copy.labels.experience}<span aria-hidden="true">↓</span></a>
 			</div>
 		</div>
 		<figure class="profile-photo">
 			<div class="profile-photo-ring">
-				<img src="/images/profile.webp" alt={`${profile.name} portrait placeholder`} />
+				<img src="/images/profile.webp" alt={`${profile.name} portrait`} />
 			</div>
 		</figure>
 		<div class="hero-index" aria-hidden="true">
@@ -127,8 +128,9 @@ const technologyIcons = [
 
 	<section class="project-teaser section-frame" id="projects">
 		<p class="eyebrow">04 / {copy.navigation.projects}</p>
-		<h2>{locale === 'es' ? 'Proyectos en preparación.' : 'Projects are taking shape.'}</h2>
-		<p>{locale === 'es' ? 'La colección de proyectos ya está preparada para recibir casos reales en la siguiente fase.' : 'The project collection is ready for real case studies in the next phase.'}</p>
+		<h2>{locale === 'es' ? 'Proyectos que convierten código en experiencia.' : 'Projects turning code into experience.'}</h2>
+		<p>{copy.labels.projectsIntro}</p>
+		<a class="button button-primary project-teaser-link" href={locale === 'es' ? '/projects/' : '/en/projects/'}>{copy.actions.viewProject}<span aria-hidden="true">↗</span></a>
 	</section>
 
 	<section class="contact-section section-frame" id="contact">

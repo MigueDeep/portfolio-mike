@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectsPage from '../../../components/ProjectsPage.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const projects = (await getCollection('projects')).filter((project) => project.data.locale === 'en');
+---
+
+<BaseLayout
+	locale="en"
+	title="Projects | Miguel Delgado"
+	description="Selected projects by Miguel Delgado, software and Front-End developer."
+>
+	<ProjectsPage projects={projects} locale="en" />
+</BaseLayout>

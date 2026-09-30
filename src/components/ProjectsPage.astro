@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { languages, ui, type Locale } from '../i18n/ui';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+	projects: CollectionEntry<'projects'>[];
+	locale: Locale;
+}
+
+const { projects, locale } = Astro.props;
+const copy = ui[locale];
+const personalProjects = projects.filter((project) => project.data.type === 'personal');
+const workProjects = projects.filter((project) => project.data.type === 'work');
+const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
+const alternatePath = alternateLocale === 'es' ? '/projects/' : '/en/projects/';
+const profilePath = locale === 'es' ? '/' : '/en/';
+---
+
+<header class="site-header">
+	<a class="brand" href={profilePath} aria-label={`${locale === 'es' ? 'Volver al perfil' : 'Back to profile'}`}>
+		<span class="brand-mark">MD</span>
+		<span>Miguel Delgado</span>
+	</a>
+	<nav aria-label={locale === 'es' ? 'Navegación de proyectos' : 'Project navigation'}>
+		<a href={profilePath}>{copy.actions.backToProfile}</a>
+		<a href="#project-list">{copy.navigation.projects}</a>
+	</nav>
+	<a class="language-switch" href={alternatePath} lang={alternateLocale} aria-label={`${languages[alternateLocale]} version`}>
+		<span aria-hidden="true">{alternateLocale.toUpperCase()}</span>
+		<span>{languages[alternateLocale]}</span>
+	</a>
+	<div class="theme-control">
+		<input id={`theme-toggle-projects-${locale}`} type="checkbox" />
+		<label for={`theme-toggle-projects-${locale}`} aria-label={locale === 'es' ? 'Cambiar a modo claro' : 'Switch to light mode'}>
+			<span aria-hidden="true">◐</span>
+		</label>
+	</div>
+</header>
+
+<main>
+	<section class="projects-hero section-frame">
+		<p class="eyebrow">04 / {copy.navigation.projects}</p>
+		<h1><span class="desktop-only">{copy.labels.projects}</span><span class="mobile-only">{copy.navigation.projects}</span></h1>
+		<p>{copy.labels.projectsIntro}</p>
+	</section>
+
+	<section class="projects-list section-frame" id="project-list">
+		<div class="project-group-heading">
+			<p class="eyebrow">01 / {locale === 'es' ? 'Proyectos personales' : 'Personal projects'}</p>
+			<h2>{locale === 'es' ? 'Exploraciones propias.' : 'Independent explorations.'}</h2>
+		</div>
+		{personalProjects.map((project) => <ProjectCard project={project} locale={locale} />)}
+	</section>
+
+	{workProjects.length > 0 && <section class="projects-list work-projects section-frame">
+		<div class="project-group-heading">
+			<p class="eyebrow">02 / {locale === 'es' ? 'Proyectos profesionales' : 'Professional projects'}</p>
+			<h2>{locale === 'es' ? 'Trabajo en equipo y producto.' : 'Teamwork and product delivery.'}</h2>
+		</div>
+		{workProjects.map((project) => <ProjectCard project={project} locale={locale} />)}
+	</section>}
+</main>
+
+<footer class="site-footer">
+	<span>Miguel Delgado</span>
+	<span>{new Date().getFullYear()}</span>
+</footer>

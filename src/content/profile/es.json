@@ -6,6 +6,7 @@
     "Desarrollador Front End"
   ],
   "email": "miguel.del.dev@gmail.com",
+  "cv": "/cv/miguel-delgado-cv-es.pdf",
   "location": "Morelos, México",
   "bio": "Desarrollador de software apasionado y adaptable, con experiencia práctica en el desarrollo de diversas aplicaciones. Disfruto aprendiendo nuevas tecnologías y busco constantemente maneras de mejorar mis habilidades. Me desenvuelvo en entornos colaborativos, me comunico eficazmente con equipos técnicos y no técnicos, y valoro el trabajo en equipo para ofrecer soluciones de alta calidad.",
   "technologies": [
@@ -36,6 +37,14 @@
     {
       "name": "Bases de Datos",
       "items": ["MySQL", "MongoDB", "PostgreSQL"]
+    },
+    {
+      "name": "IA aplicada al desarrollo",
+      "items": ["LLMs", "Diseño de agentes y subagentes", "MCP", "Skills", "Orquestación de tareas", "Automatización de flujos de desarrollo"]
+    },
+    {
+      "name": "Conceptos",
+      "items": ["Clean Code", "SOLID", "Responsive Design", "Componentización", "Arquitectura Frontend", "REST APIs", "UX/UI"]
     }
   ],
   "experience": [
@@ -67,6 +76,10 @@
     {
       "label": "GitHub",
       "href": "https://github.com/MigueDeep"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/miguedpp/"
     }
   ]
 }

@@ -6,6 +6,7 @@
     "Front-End Developer"
   ],
   "email": "miguel.del.dev@gmail.com",
+  "cv": "/cv/miguel-delgado-cv-en.pdf",
   "location": "Morelos, Mexico",
   "bio": "Passionate and adaptable software developer with hands-on experience in developing diverse applications. I enjoy learning new technologies and constantly look for ways to improve my skills. I thrive in collaborative environments, communicate effectively with both technical and non-technical teams, and value teamwork to deliver high-quality solutions.",
   "technologies": [
@@ -21,9 +22,13 @@
       "name": "Libraries",
       "items": ["Tailwind CSS", "Bootstrap", "Material UI (MUI)", "Keep React"]
     },
+     {
+      "name": "AI Applied to Development",
+      "items": ["LLMs", "Agent and subagent design", "MCP", "Skills", "Task orchestration", "Development workflow automation"]
+    },
     {
-      "name": "Testing",
-      "items": ["Jest", "Vitest", "Playwright"]
+      "name": "Concepts",
+      "items": ["Clean Code", "SOLID", "Responsive Design", "Componentization", "Frontend Architecture", "REST APIs", "UX/UI"]
     },
     {
       "name": "Version Control",
@@ -36,7 +41,11 @@
     {
       "name": "Databases",
       "items": ["MySQL", "MongoDB", "PostgreSQL"]
-    }
+    },
+   {
+      "name": "Testing",
+      "items": ["Jest", "Vitest", "Playwright"]
+    } 
   ],
   "experience": [
     {
@@ -67,6 +76,10 @@
     {
       "label": "GitHub",
       "href": "https://github.com/MigueDeep"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/miguedpp/"
     }
   ]
 }

@@ -22,6 +22,7 @@ const profile = defineCollection({
 		name: z.string(),
 		roles: z.array(z.string()),
 		email: z.email(),
+		cv: z.string().optional(),
 		location: z.string(),
 		bio: z.string(),
 		technologies: z.array(technologyGroupSchema),
@@ -39,6 +40,8 @@ const projects = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
 	schema: z.object({
 		locale: z.enum(['es', 'en']),
+		type: z.enum(['personal', 'work']),
+		company: z.string().optional(),
 		title: z.string(),
 		summary: z.string(),
 		description: z.string(),
@@ -47,6 +50,8 @@ const projects = defineCollection({
 		repository: z.url().optional(),
 		deployment: z.url().optional(),
 		image: z.string().optional(),
+		gallery: z.array(z.string()).optional(),
+		youtubeId: z.string().optional(),
 	}),
 });
 

@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from 'astro:content';
+import ProjectDetail from '../../../components/ProjectDetail.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const projects = (await getCollection('projects')).filter((project) => project.data.locale === 'en' && project.data.type === 'personal');
+
+	return projects.map((project) => ({
+		params: { slug: project.id.replace(/-(es|en)$/, '') },
+		props: { project },
+	}));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout
+	locale="en"
+	title={`${project.data.title} | Miguel Delgado`}
+	description={project.data.description}
+>
+	<ProjectDetail project={project} locale="en">
+		<Content />
+	</ProjectDetail>
+</BaseLayout>

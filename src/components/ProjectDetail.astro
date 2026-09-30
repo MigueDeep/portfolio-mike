@@ -1,0 +1,107 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { languages, ui, type Locale } from '../i18n/ui';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+	locale: Locale;
+}
+
+const { project, locale } = Astro.props;
+const copy = ui[locale];
+const projectsPath = locale === 'es' ? '/projects/' : '/en/projects/';
+const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
+const projectSlug = project.id.replace(/-(es|en)$/, '');
+const alternateProjectPath = alternateLocale === 'es' ? `/projects/${projectSlug}/` : `/en/projects/${projectSlug}/`;
+---
+
+<header class="site-header">
+	<a class="brand" href={locale === 'es' ? '/' : '/en/'} aria-label={`${locale === 'es' ? 'Volver al perfil' : 'Back to profile'}`}>
+		<span class="brand-mark">MD</span>
+		<span>Miguel Delgado</span>
+	</a>
+	<nav aria-label={locale === 'es' ? 'Navegación de proyecto' : 'Project navigation'}>
+		<a href={locale === 'es' ? '/' : '/en/'}>{copy.actions.backToProfile}</a>
+		<a href={projectsPath}>{copy.navigation.projects}</a>
+	</nav>
+	<a class="language-switch" href={alternateProjectPath} lang={alternateLocale} aria-label={`${languages[alternateLocale]} version`}>
+		<span aria-hidden="true">{alternateLocale.toUpperCase()}</span>
+		<span>{languages[alternateLocale]}</span>
+	</a>
+	<div class="theme-control">
+		<input id={`theme-toggle-detail-${locale}`} type="checkbox" />
+		<label for={`theme-toggle-detail-${locale}`} aria-label={locale === 'es' ? 'Cambiar a modo claro' : 'Switch to light mode'}>
+			<span aria-hidden="true">◐</span>
+		</label>
+	</div>
+</header>
+
+<main>
+	<article class="project-detail section-frame">
+		<a class="back-link" href={projectsPath}>← {copy.navigation.projects}</a>
+		<div class="project-hero-layout">
+			<div class="project-hero-copy">
+				<p class="eyebrow">{project.data.stack.join(' / ')}</p>
+				<h1>{project.data.title}</h1>
+				<p class="project-detail-summary">{project.data.summary}</p>
+				<div class="project-links">
+					<a class="button button-primary" href={project.data.repository} target="_blank" rel="noreferrer">{copy.actions.viewRepository}<span aria-hidden="true">↗</span></a>
+					<a class="button button-quiet" href={project.data.deployment} target="_blank" rel="noreferrer">{copy.actions.viewDeployment}<span aria-hidden="true">↗</span></a>
+				</div>
+			</div>
+			{project.data.image && <figure class="project-cover">
+				<img src={project.data.image} alt={`${project.data.title} preview`} />
+			</figure>}
+		</div>
+	</article>
+
+	<section class="project-detail-grid section-frame">
+		<div>
+			<p class="eyebrow">01 / {locale === 'es' ? 'Descripción' : 'Description'}</p>
+			<h2>{locale === 'es' ? 'Una experiencia de juego centrada en la interacción.' : 'A game experience centered on interaction.'}</h2>
+		</div>
+		<div class="project-description">
+			<p>{project.data.description}</p>
+			<div class="project-body"><slot /></div>
+		</div>
+	</section>
+
+	<section class="project-detail-grid section-frame">
+		<div>
+			<p class="eyebrow">02 / {locale === 'es' ? 'Características' : 'Features'}</p>
+			<h2>{locale === 'es' ? 'Lo que ocurre durante la partida.' : 'What happens during gameplay.'}</h2>
+		</div>
+		<div>
+			<ul class="feature-list">
+				{project.data.features.map((feature) => <li>{feature}</li>)}
+			</ul>
+			<div class="stack-list">
+				<p class="eyebrow">03 / Stack</p>
+				<div>{project.data.stack.map((technology) => <span>{technology}</span>)}</div>
+			</div>
+		</div>
+	</section>
+
+	{(project.data.gallery && project.data.gallery.length > 0) || project.data.youtubeId ? <section class="project-media-bottom section-frame">
+		{project.data.gallery && project.data.gallery.length > 0 && <div class="project-gallery">
+			{project.data.gallery.map((image, index) => <img src={image} alt={`${project.data.title} screenshot ${index + 1}`} loading="lazy" />)}
+		</div>}
+		{project.data.youtubeId && <div class="project-video">
+			<p class="eyebrow">04 / Gameplay</p>
+			<div class="video-frame">
+				<iframe
+					src={`https://www.youtube-nocookie.com/embed/${project.data.youtubeId}`}
+					title={`${project.data.title} gameplay`}
+					loading="lazy"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				></iframe>
+			</div>
+		</div>}
+	</section> : null}
+</main>
+
+<footer class="site-footer">
+	<span>{project.data.title}</span>
+	<span>{new Date().getFullYear()}</span>
+</footer>
