@@ -23,8 +23,12 @@
       "items": ["Tailwind CSS", "Bootstrap", "Material UI (MUI)", "Keep React"]
     },
     {
-      "name": "Testing",
-      "items": ["Jest", "Vitest", "Playwright"]
+      "name": "IA aplicada al desarrollo",
+      "items": ["LLMs", "Diseño de agentes y subagentes", "MCP", "Skills", "Orquestación de tareas", "Automatización de flujos de desarrollo"]
+    },
+    {
+      "name": "Conceptos",
+      "items": ["Clean Code", "SOLID", "Responsive Design", "Componentización", "Arquitectura Frontend", "REST APIs", "UX/UI"]
     },
     {
       "name": "Control de Versiones",
@@ -38,13 +42,11 @@
       "name": "Bases de Datos",
       "items": ["MySQL", "MongoDB", "PostgreSQL"]
     },
-    {
-      "name": "IA aplicada al desarrollo",
-      "items": ["LLMs", "Diseño de agentes y subagentes", "MCP", "Skills", "Orquestación de tareas", "Automatización de flujos de desarrollo"]
-    },
-    {
-      "name": "Conceptos",
-      "items": ["Clean Code", "SOLID", "Responsive Design", "Componentización", "Arquitectura Frontend", "REST APIs", "UX/UI"]
+    
+  
+      {
+      "name": "Testing",
+      "items": ["Jest", "Vitest", "Playwright"]
     }
   ],
   "experience": [
