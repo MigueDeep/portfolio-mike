@@ -45,6 +45,7 @@ iframe {
 	max-width: 100%;
 }
 
+:root[data-theme='light'],
 body:has(.theme-control input:checked) {
 	color-scheme: light;
 	--color-background: #f4f7fb;
@@ -58,6 +59,7 @@ body:has(.theme-control input:checked) {
 	--color-line: rgba(51, 65, 85, 0.2);
 }
 
+:root[data-theme='light'] .button-primary,
 body:has(.theme-control input:checked) .button-primary {
 	color: #ffffff;
 }

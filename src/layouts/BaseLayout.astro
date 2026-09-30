@@ -34,6 +34,29 @@ const { title, description, locale = 'es', image } = Astro.props;
 		{image && <meta property="og:image" content={new URL(image, Astro.url).href} />}
 		{image && <meta name="twitter:image" content={new URL(image, Astro.url).href} />}
 		<title>{title}</title>
+		<script is:inline>
+			const themeKey = 'portfolio-theme';
+
+			function applyTheme() {
+				const theme = localStorage.getItem(themeKey) || 'dark';
+				document.documentElement.dataset.theme = theme;
+
+				const toggle = document.querySelector('.theme-control input');
+				if (toggle) toggle.checked = theme === 'light';
+			}
+
+			document.addEventListener('change', (event) => {
+				const toggle = event.target.closest('.theme-control input');
+				if (!toggle) return;
+
+				const theme = toggle.checked ? 'light' : 'dark';
+				localStorage.setItem(themeKey, theme);
+				document.documentElement.dataset.theme = theme;
+			});
+
+			document.addEventListener('astro:page-load', applyTheme);
+			applyTheme();
+		</script>
 		<ClientRouter />
 	</head>
 	<body>
